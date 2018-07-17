@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20180714231021_init.cs" />
+    <Compile Remove="Migrations\20180715032152_inital.cs" />
+    <Compile Remove="Migrations\20180715051128_Role.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Enum\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RolePermission.Common\RolePermission.Common.csproj" />
+  </ItemGroup>
+
+</Project>

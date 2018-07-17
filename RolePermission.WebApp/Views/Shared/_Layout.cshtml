@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>@ViewBag.Title</title>
+    <link id="easyuiTheme" href="~/easyUI/themes/bootstrap/easyui.css" rel="stylesheet"/>
+    <link id="easyuiIcon" href="~/easyUI/themes/icon.css" rel="stylesheet"/>
+    <link id="easyuieasyuiExt" href="~/easyUI/easyuiExt.css" rel="stylesheet"/>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="~/css/signin.css" rel="stylesheet"/>
+    <link href="~/easyUI/easyuiExt.css" rel="stylesheet"/>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/easyUI/jquery.cookie.js"></script>
+    <script src="~/easyUI/jquery.easyui.min.js"></script>
+    <script src="~/easyUI/locale/easyui-lang-zh_CN.js"></script>
+    <script src="~/easyUI/easyuiExt.js"></script>
+    <script src="~/easyUI/JScriptCommon.js"></script>
+    @*     @Scripts.Render("~/bundles/jscookie")*@
+    <script type="text/javascript">
+        function initThemes() {
+            var $easyuiTheme = $('#easyuiTheme');
+            if ($.cookie('easyuiThemeName')) {
+                changeThemeFun($.cookie('easyuiThemeName'), $easyuiTheme);
+            }
+            //else {
+            //    $easyuiTheme.attr('href', "DLL/easyUI/themes/bootstrap/easyui.css");
+            //}
+        }
+
+        function changeThemeFun(themeName, $easyuiTheme) { /* 更换主题 */
+            $.cookie('easyuiThemeName', themeName, { expires: 7 });
+            var url = $easyuiTheme.attr('href');
+            var href = "/easyUI/themes/" + themeName + '/easyui.css';
+            $easyuiTheme.attr('href', href);
+            var $iframe = $('iframe');
+            if ($iframe.length > 0) {
+                for (var i = 0; i < $iframe.length; i++) {
+                    var ifr = $iframe[i];
+                    $(ifr).contents().find('#easyuiTheme').attr('href', href);
+                }
+            }
+        };
+
+        initThemes();
+    </script>
+</head>
+<body class="easyui-layout">
+@RenderBody()
+
+@RenderSection("scripts", false)
+</body>
+</html>
