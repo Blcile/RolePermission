@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using RolePermission.BLL;
 using RolePermission.DAL;
 using RolePermission.DALSessionFactory;
@@ -51,7 +53,16 @@ namespace RolePermission.WebApp
                 options.Cookie.HttpOnly = true;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc()
+                .AddJsonOptions(options =>
+                    {
+                        //忽略循环引用
+                        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                        //不使用驼峰样式的key,使用原本属性字段名
+                        options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                        //设置时间格式
+                        options.SerializerSettings.DateFormatString = "yyy-MM-dd";
+                    }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
