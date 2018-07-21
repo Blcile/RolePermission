@@ -167,11 +167,11 @@
                             title: '@Html.LabelFor(model => model.CREATION_TIME)',
                             width: 130,
                             sortable: true,
-                            formatter: function(value, rec) {
-                                if (value) {
-                                    return dateTimeConvert(value);
-                                }
-                            }
+//                            formatter: function(value, rec) {
+//                                if (value) {
+//                                    return dateTimeConvert(value);
+//                                }
+//                            }
                         }
                     ]
                 ],
@@ -277,8 +277,8 @@
 
                     $("#v_CreateUser").text(userInfo.CreateUserName);
                     $("#v_UpdateUser").text(userInfo.UpdateUserName);
-                    $("#v_CreateTime").text(dateTimeConvert(userInfo.CREATION_TIME));
-                    $("#v_UpdateTime").text(dateTimeConvert(userInfo.UPDATE_TIME));
+                    $("#v_CreateTime").text(userInfo.CREATION_TIME);
+                    $("#v_UpdateTime").text(userInfo.UPDATE_TIME);
 
                     $("#v_Roles").text(userInfo.SysRoleId);
                 });

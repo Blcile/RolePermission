@@ -1,4 +1,5 @@
-﻿@model RolePermission.Model.SMUSERTB
+﻿@using RolePermission.Common
+@model RolePermission.Model.SMUSERTB
 @{
     ViewBag.SubTitle = "创建 用户";
     Layout = "~/Views/Shared/save.cshtml";
@@ -41,13 +42,13 @@
                 @Html.LabelFor(model => model.GENDER)
             </td>
             <td>
-                @*                @Html.RadioButtonListFor(model => model.GENDER, SelectListClass.GetGenders(false), true)*@
+                @Html.DropDownListFor(model=>model.GENDER,SelectListClass.GetGenders(false),true)
             </td>
             <td>
                 @Html.LabelFor(model => model.STATUS)
             </td>
             <td>
-                @*                @Html.RadioButtonListFor(model => model.STATUS, SelectListClass.GetStatus(false), true)*@
+                @Html.DropDownListFor(model=>model.STATUS, SelectListClass.GetStatus(false),true)
             </td>
         </tr>
         <tr class="usertablerow2">
