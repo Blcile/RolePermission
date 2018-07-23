@@ -1,12 +1,12 @@
 ﻿using RolePermission.Model;
 using RolePermission.Model.SearchParam;
-using RolePermission.WebApp.Filter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using RolePermission.BLL;
 using RolePermission.Common.HtmlHelpers;
 using RolePermission.Common;
@@ -204,7 +204,7 @@ namespace RolePermission.WebApp.Controllers
         /// <returns></returns>   
         [HttpPost]
         //[SupportFilter]
-        public ActionResult Delete(FormCollection collection)
+        public ActionResult Delete(IFormCollection collection)
         {
             string returnValue = string.Empty;
 

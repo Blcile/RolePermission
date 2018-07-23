@@ -179,7 +179,7 @@ namespace RolePermission.WebApp.Controllers
         /// <returns></returns>   
         [HttpPost]
         //[SupportFilter]
-        public ActionResult Delete(FormCollection collection)
+        public ActionResult Delete(IFormCollection collection)
         {
             string returnValue = string.Empty;
             List<int> lists = collection["query"].GetString().ToIntList();

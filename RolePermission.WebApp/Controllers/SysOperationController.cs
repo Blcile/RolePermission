@@ -181,7 +181,7 @@ namespace RolePermission.WebApp.Controllers
         /// <param name="collection"></param>
         /// <returns></returns>   
         [HttpPost]
-        public ActionResult Delete(FormCollection collection)
+        public ActionResult Delete(IFormCollection collection)
         {
             string returnValue = string.Empty;
             int[] deleteId = collection["query"].GetString().ToIntList().ToArray<int>();

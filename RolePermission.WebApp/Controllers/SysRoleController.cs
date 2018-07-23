@@ -81,7 +81,7 @@ namespace RolePermission.WebApp.Controllers
         /// <returns></returns>   
         [HttpPost]
         //[SupportFilter]
-        public ActionResult Save(FormCollection collection)
+        public ActionResult Save(IFormCollection collection)
         {
             string returnValue = string.Empty;
             string[] ids = collection["ids"].GetString().Split(',');
@@ -174,7 +174,7 @@ namespace RolePermission.WebApp.Controllers
         /// <returns></returns>   
         [HttpPost]
         //[SupportFilter]
-        public ActionResult Delete(FormCollection collection)
+        public ActionResult Delete(IFormCollection collection)
         {
             string returnValue = string.Empty;
 
