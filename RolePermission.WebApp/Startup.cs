@@ -16,8 +16,10 @@ using Newtonsoft.Json.Serialization;
 using RolePermission.BLL;
 using RolePermission.DAL;
 using RolePermission.DALSessionFactory;
+using RolePermission.IBLL;
 using RolePermission.IDAL;
 using RolePermission.Model;
+using RolePermission.WebApp.Models;
 
 namespace RolePermission.WebApp
 {
@@ -110,6 +112,9 @@ namespace RolePermission.WebApp
             services.AddScoped<SMMENUTBService>();
             services.AddScoped<SMROLETBService>();
             services.AddScoped<SMUSERTBService>();
+
+            services.AddScoped<SysFieldModels>();
+
             return services;
         }
     }

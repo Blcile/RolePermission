@@ -60,8 +60,10 @@
                 @Html.DropDownListFor(model => model.STATE, SelectListClass.GetStatus(true))
             </td>
         </tr>
-        <tr class="usertablerow2" style="height: 30px;"><td> @Html.LabelFor(model => model.ISLEAF)</td>
-        @*            <td colspan="3">@Html.RadioButtonListFor(model => model.ISLEAF, SelectListClass.GetYesOrNo(false))</td></tr>*@
+        <tr class="usertablerow2" style="height: 30px;">
+            <td> @Html.LabelFor(model => model.ISLEAF)</td>
+            <td colspan="3">@Html.DropDownListFor(moedl => Model.ISLEAF, SelectListClass.GetYesOrNo(false))</td>
+        </tr>
         <tr class="usertablerow1">
             <td>
                 @Html.LabelFor(model => model.REMARK)

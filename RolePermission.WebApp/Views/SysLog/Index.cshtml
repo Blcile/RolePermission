@@ -14,7 +14,7 @@
         开始日期：<input class="easyui-datebox" name="LOG_DATETIMEStart_Time" id="LOG_DATETIMEStart_Time"data-options="formatter:myformatter,parser:myparser"/>&nbsp;
         结束日期：<input class="easyui-datebox" name="LOG_DATETIMEEnd_Time" id="LOG_DATETIMEEnd_Time"data-options="formatter:myformatter,parser:myparser"/>
         <span>@Html.LabelFor(model => model.OPERATION_TYPE)：</span>
-        @*        <span>@Html.DropDownListFor(model => model.OPERATION_TYPE, new SysFieldModels().GetSysField("SMLOG", "STATUS"),new{@class="easyui-combobox" })</span>*@
+        <span>@Html.DropDownListFor(model => model.OPERATION_TYPE, (ViewBag.LogStatus as SelectList), new{@class="easyui-combobox" })</span>
         <a href="javascript:flexiQuery()" class="easyui-linkbutton" data-options="iconCls:'icon-search'">
             查询
         </a>

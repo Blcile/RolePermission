@@ -1,4 +1,5 @@
-﻿@model RolePermission.Model.SMROLETB
+﻿@using RolePermission.Common
+@model RolePermission.Model.SMROLETB
 @{
     ViewBag.SubTitle = "角色 创建";
     Layout = "~/Views/Shared/Save.cshtml";
@@ -16,7 +17,7 @@
             </td>
             <td class="_width"> @Html.LabelFor(model => model.STATUS)：</td>
             <td class="width2">
-                @*                              @Html.RadioButtonListFor(model => model.STATUS, SelectListClass.GetStatus(false), true)*@
+                @Html.DropDownListFor(mode=>mode.STATUS, SelectListClass.GetStatus(false), true)
             </td>
         </tr>
         <tr>

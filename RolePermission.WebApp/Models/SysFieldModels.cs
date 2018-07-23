@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using RolePermission.BLL;
 
 namespace RolePermission.WebApp.Models
 {
@@ -23,9 +24,9 @@ namespace RolePermission.WebApp.Models
         /// </summary>
         public static string DefaultSelectValue = "";
 
-        private readonly ISMFIELDService FieldService;
+        private readonly SMFIELDService FieldService;
 
-        public SysFieldModels(ISMFIELDService fieldService)
+        public SysFieldModels(SMFIELDService fieldService)
         {
             FieldService = fieldService;
         }
@@ -52,7 +53,7 @@ namespace RolePermission.WebApp.Models
             return new SelectList(FieldService.GetSysField(table, colum, parentMyTexts), "MYVALUES", "MYTEXTS");
 
         }
-        public  SelectList GetSysField(string table, string colum, bool isSelect)
+        public SelectList GetSysField(string table, string colum, bool isSelect)
         {
             if (string.IsNullOrWhiteSpace(table) || string.IsNullOrWhiteSpace(colum))
             {

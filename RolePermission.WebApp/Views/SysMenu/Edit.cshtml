@@ -86,7 +86,7 @@
         </tr>
         <tr class="usertablerow2" style="height: 30px;">
             <td> @Html.LabelFor(model => model.ISLEAF)</td>
-            @*              <td colspan="3">@Html.RadioButtonListFor(model => model.ISLEAF, SelectListClass.GetYesOrNo(false), true)</td>*@
+            <td colspan="3">@Html.DropDownListFor(model=>model.ISLEAF, SelectListClass.GetYesOrNo(false))</td>
         </tr>
         <tr class="usertablerow1">
             <td>

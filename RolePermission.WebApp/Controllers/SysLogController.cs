@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc;
 using RolePermission.BLL;
 using RolePermission.Model;
 using RolePermission.Model.SearchParam;
+using RolePermission.WebApp.Models;
 
 namespace RolePermission.WebApp.Controllers
 {
     public class SysLogController : BaseController
     {
         private readonly SMLOGService SMLOGService;
+        private readonly SysFieldModels SysFieldModels;
 
-        public SysLogController(SMLOGService logService)
+        public SysLogController(SMLOGService logService,
+            SysFieldModels sysFieldModels)
         {
             SMLOGService = logService;
+            SysFieldModels = sysFieldModels;
         }
         /// <summary>
         /// 列表
@@ -26,6 +30,7 @@ namespace RolePermission.WebApp.Controllers
 //          [MyAuthorize]
         public ActionResult Index()
         {
+            ViewBag.LogStatus = SysFieldModels.GetSysField("SMLOG", "STATUS");
             return View();
         }
 
